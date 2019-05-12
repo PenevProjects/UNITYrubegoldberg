@@ -5,6 +5,7 @@ using UnityEngine;
 public class ChangeColor : MonoBehaviour {
     public GameObject _player;
     public Material _mat2;
+    public float _speed;
     Renderer _rndrr;
     bool _collided = false;
     private void Start()
@@ -14,7 +15,7 @@ public class ChangeColor : MonoBehaviour {
     private void FixedUpdate()
     {
         if (_collided)
-            _rndrr.material.color = Color.Lerp(_rndrr.material.color, _mat2.color, Time.deltaTime);
+            _rndrr.material.color = Color.Lerp(_rndrr.material.color, _mat2.color, _speed * Time.deltaTime);
     }
     private void OnCollisionEnter(Collision collision)
     {
