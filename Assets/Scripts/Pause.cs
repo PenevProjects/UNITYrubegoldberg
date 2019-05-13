@@ -8,7 +8,7 @@ public class Pause : MonoBehaviour {
     public Button _exit;
     public GameObject _music;
     AudioSource _musicTrack;
-    bool paused = false;
+    public bool paused = false;
     bool musicBool = true;
 
     private void Start()
@@ -41,21 +41,6 @@ public class Pause : MonoBehaviour {
         }
     }
 
-    //void OnGUI()
-    //{
-    //    if (paused)
-    //    {
-    //        _reset.gameObject.SetActive(true);
-    //        _exit.gameObject.SetActive(true);
-    //        _musicTrack.Pause();
-    //    }
-    //    else
-    //    {
-    //        _reset.gameObject.SetActive(false);
-    //        _exit.gameObject.SetActive(false);
-    //    }
-    //}
-
     bool togglePause()
     {
         if (Time.timeScale == 0f)
@@ -63,10 +48,12 @@ public class Pause : MonoBehaviour {
             Time.timeScale = 1f;
             return false;
         }
-        else
+        else if (Time.timeScale == 1f)
         {
             Time.timeScale = 0f;
             return true;
         }
+        else
+            return true;
     }
 }
